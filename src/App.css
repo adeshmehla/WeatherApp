@@ -1,6 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap');
+@import 'antd/dist/antd.css';
+body{
+  background-color: antiquewhite;
+}
 .App {
   text-align: center;
+  
 }
+
+#card{
+  margin: auto;
+  width: 55%;
+  border: 1px solid;
+  height: 541px;
+
+}
+
 
 .App-logo {
   height: 40vmin;

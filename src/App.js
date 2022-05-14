@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import React, { useState } from "react";
+import WeatherDetails from './Component/WeatherDetails';
+import axios from 'axios';
+export default function App() {
+ let apikey ='ed94c3355a4cedd3c6f5807abf2a25ca' 
+ let myStyle ={
+  backgroundImage:`url(${require(`./Component/bg_images/02d.png`)})`, 
+  height: "400px"
+}
+ const[city,setCity]=useState('');
+ const[data,setData]=useState('');
+
+  const fetchWeather = async(e)=>{
+    e.preventDefault();
+ const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}`)
+setData(response.data);  
+myStyle ={
+  backgroundColor:"white",
+  height: "400px"
+}
 }
 
-export default App;
+  return (
+    <div className="App" id='card'>
+   <div style={myStyle}>
+   {data?<WeatherDetails data={data}/>:null}
+   <h1>React Weather App</h1>
+   <form layout="inline" onSubmit={fetchWeather}>
+        <input type="text"  onChange={(e)=>{setCity(e.target.value)}}/>
+     <button type='submit'>Search</button>
+     </form>  
+   </div>
+    </div>
+    
+  );
+}
