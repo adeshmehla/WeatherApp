@@ -7,7 +7,14 @@ export default function App() {
  let apikey ='ed94c3355a4cedd3c6f5807abf2a25ca' 
  let myStyle ={
   backgroundImage:`url(${require(`./Component/bg_images/02d.png`)})`, 
-  height: "400px"
+  height: "100% ",
+  width: "100%",
+  display: "flex",
+  textAlign:"justify",
+  flexFlow: "row-reverse wrap",
+  alignContent: "space-between",
+  justifyContent: "space-around"
+
 }
  const[city,setCity]=useState('');
  const[data,setData]=useState('');
@@ -16,20 +23,19 @@ export default function App() {
     e.preventDefault();
  const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}`)
 setData(response.data);  
-myStyle ={
-  backgroundColor:"white",
-  height: "400px"
+myStyle={
+  background:"none"
 }
 }
 
   return (
     <div className="App" id='card'>
    <div style={myStyle}>
-   {data?<WeatherDetails data={data}/>:null}
+   {data?<WeatherDetails data={data}/>: null}
    <h1>React Weather App</h1>
    <form layout="inline" onSubmit={fetchWeather}>
-        <input type="text"  onChange={(e)=>{setCity(e.target.value)}}/>
-     <button type='submit'>Search</button>
+        <input type="text" placeholder='Search..' className='input_class' onChange={(e)=>{setCity(e.target.value)}}/>
+     <button id="searchBtn" type='submit'>Search</button>
      </form>  
    </div>
     </div>

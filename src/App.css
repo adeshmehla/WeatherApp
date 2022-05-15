@@ -10,12 +10,27 @@ body{
 
 #card{
   margin: auto;
-  width: 55%;
+  width: 410px;
   border: 1px solid;
-  height: 541px;
+  height: 523px;
+}
+.input_class{
+  height: 37px;
+  border: none;
+  border-radius: 2px;
+  font-size: 18px;
+  width: 100%;
+  margin: 12px 0px;
 
 }
-
+#searchBtn{
+  height: 37px;
+  border: 1px solid;
+  width: 54%;
+  border-radius: 2px;
+  font-size: 18px;
+  background: none;
+}
 
 .App-logo {
   height: 40vmin;
