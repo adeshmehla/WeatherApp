@@ -13,7 +13,8 @@ export default function App() {
   textAlign:"justify",
   flexFlow: "row-reverse wrap",
   alignContent: "space-between",
-  justifyContent: "space-around"
+  justifyContent: "space-around",
+  backgroundPosition:"center"
 
 }
  const[city,setCity]=useState('');
@@ -31,7 +32,7 @@ myStyle={
     <div className="App" id='card'>
    <div style={myStyle}>
    {data?<WeatherDetails data={data}/>: null}
-   <div style={{position: "absolute",top: "57%"}}>
+   <div style={{position: "absolute",top: "363px"}}>
    <h1>React Weather App</h1>
    <form layout="inline" onSubmit={fetchWeather}>
         <input type="text" placeholder='Search..' className='input_class' onChange={(e)=>{setCity(e.target.value)}}/>
