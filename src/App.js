@@ -27,16 +27,17 @@ myStyle={
   background:"none"
 }
 }
-
   return (
     <div className="App" id='card'>
    <div style={myStyle}>
    {data?<WeatherDetails data={data}/>: null}
+   <div style={{position: "absolute",top: "57%"}}>
    <h1>React Weather App</h1>
    <form layout="inline" onSubmit={fetchWeather}>
         <input type="text" placeholder='Search..' className='input_class' onChange={(e)=>{setCity(e.target.value)}}/>
      <button id="searchBtn" type='submit'>Search</button>
-     </form>  
+     </form>
+     </div>  
    </div>
     </div>
     

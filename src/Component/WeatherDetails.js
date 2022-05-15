@@ -19,6 +19,9 @@ console.log(we)
        <h4>{data.weather[0].main}</h4>
     </div>
         <h1>{data.name}<h6>{data.sys.country}</h6></h1>
+        <p>Sunrise: {new Date(data.sys.sunrise * 1000).toLocaleTimeString('en-IN')}</p>
+        <p>Sunset: {new Date(data.sys.sunset * 1000).toLocaleTimeString('en-IN')}</p>
+        <p>Humidity: {data.main.humidity} %</p>
     </div>:null}
       </>
   )
